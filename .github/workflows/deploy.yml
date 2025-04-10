@@ -1,11 +1,12 @@
-name: Deploy React App to Droplet
+name: Deploy to Droplet
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,14 +16,23 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build app
+      - name: Build Vite app
         run: npm run build
 
-      - name: Deploy via SSH
+      - name: Clean old files on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 167.99.222.76
+          username: rene
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          script: |
+            rm -rf /var/www/renem.me/*
+
+      - name: Upload build to server
         uses: appleboy/scp-action@master
         with:
           host: 167.99.222.76
           username: rene
           key: ${{ secrets.DROPLET_SSH_KEY }}
           source: "dist/*"
-          target: "/var/www/renem.me"
+          target: "/var/www/renem.me/"
