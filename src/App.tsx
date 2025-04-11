@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
@@ -12,7 +13,10 @@ import {
   SiTailwindcss,
   SiGithub,
   SiLinkedin,
+  SiBootstrap,
+  SiMailboxdotorg,
 } from "react-icons/si";
+import { BsSun, BsMoon } from "react-icons/bs";
 
 const techIcons = [
   { icon: SiHtml5, name: "HTML" },
@@ -22,6 +26,7 @@ const techIcons = [
   { icon: SiTypescript, name: "TypeScript" },
   { icon: SiMysql, name: "SQL" },
   { icon: SiSharp, name: "C#" },
+  { icon: SiBootstrap, name: "Bootstrap" },
   { icon: SiTailwindcss, name: "Tailwind" },
 ];
 
@@ -33,6 +38,10 @@ const socialLinks = [
   {
     url: "https://www.github.com/Renx24",
     icon: SiGithub,
+  },
+  {
+    url: "mailto:remerida@hotmail.com",
+    icon: SiMailboxdotorg,
   },
 ];
 
@@ -64,11 +73,25 @@ const projects = [
 ];
 
 export default function Portfolio() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
+
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 px-4 py-10 space-y-12">
-      <header className="text-center space-y-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 px-4 py-10 space-y-12 flex flex-col">
+      <header className="text-center space-y-4 mt-8">
+        <div className="flex justify-end mr-4">
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className="text-2xl p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition"
+          >
+            {isDark ? <BsSun /> : <BsMoon />}
+          </button>
+        </div>
         <h1 className="text-4xl font-bold">Rene Merida</h1>
-        <p className="text-lg text-slate-600 max-w-xl mx-auto">
+        <p className="text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto mb-10">
           I'm a developer who builds clean, performant, and user-friendly
           applications.
         </p>
@@ -85,7 +108,7 @@ export default function Portfolio() {
         </div>
       </header>
 
-      <section>
+      <section className="flex grow flex-col items-center justify-center">
         <h2 className="text-2xl font-semibold text-center mb-6">Portfolio</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {projects.map((project, i) => (
@@ -104,10 +127,12 @@ export default function Portfolio() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
             >
-              <Card className="rounded-2xl shadow-md bg-white hover:shadow-lg transition">
+              <Card className="rounded-2xl shadow-md bg-white dark:bg-slate-800 hover:shadow-lg transition">
                 <CardContent className="p-6 space-y-2">
                   <h3 className="text-xl font-semibold">{project.title}</h3>
-                  <p className="text-slate-600">{project.description}</p>
+                  <p className="text-slate-600 dark:text-slate-300">
+                    {project.description}
+                  </p>
                 </CardContent>
               </Card>
             </motion.a>
@@ -129,16 +154,16 @@ export default function Portfolio() {
             </Badge>
           ))}
         </div>
-        <p className="mt-4 text-slate-500">
+        <p className="mt-4 text-slate-500 dark:text-slate-400">
           © {new Date().getFullYear()} Rene Merida. All rights reserved.
         </p>
-        <p className="text-slate-500">
+        <p className="text-slate-500 dark:text-slate-400">
           Built with{" "}
           <a
             href="https://vite.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-800 hover:text-slate-600 transition"
+            className="text-slate-800 dark:text-white hover:text-slate-600 dark:hover:text-slate-300 transition"
           >
             Vite
           </a>{" "}
@@ -147,7 +172,7 @@ export default function Portfolio() {
             href="https://tailwindcss.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-800 hover:text-slate-600 transition"
+            className="text-slate-800 dark:text-white hover:text-slate-600 dark:hover:text-slate-300 transition"
           >
             Tailwind CSS
           </a>
