@@ -9,6 +9,7 @@ import {
   SiTypescript,
   SiMysql,
   SiSharp,
+  SiTailwindcss,
 } from "react-icons/si";
 
 const techIcons = [
@@ -19,31 +20,33 @@ const techIcons = [
   { icon: SiTypescript, name: "TypeScript" },
   { icon: SiMysql, name: "SQL" },
   { icon: SiSharp, name: "C#" },
+  { icon: SiTailwindcss, name: "Tailwind" },
 ];
 
 const projects = [
   {
-    title: "Project One",
-    description: "A sleek project that solves problem X using tech stack Y.",
-    link: "#",
+    title: "Memory Card Game",
+    description:
+      "Fully-responsive memory game built with React and TypeScript. Learned about useEffects and optimizing fetching data from an API.",
+    link: "https://renem.me/memory-card-game",
   },
   {
-    title: "Project Two",
+    title: "CV Generator",
     description:
-      "An elegant solution for Z with a focus on UX and performance.",
-    link: "#",
+      "React project that familiarized me with hooks and state management.",
+    link: "https://renem.me/cv-builder-application",
   },
   {
-    title: "Project Three",
+    title: "Flag Guesser",
     description:
-      "An elegant solution for Z with a focus on UX and performance.",
-    link: "#",
+      "Just something I made to practice my React skills. It uses the REST Countries API to fetch data.",
+    link: "https://renem.me/flag-guesser",
   },
   {
     title: "Project Four",
     description:
       "An elegant solution for Z with a focus on UX and performance.",
-    link: "#",
+    link: "https://renem.me/F",
   },
 ];
 
