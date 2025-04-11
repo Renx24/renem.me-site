@@ -28,19 +28,19 @@ const projects = [
     title: "Memory Card Game",
     description:
       "Fully-responsive memory game built with React and TypeScript. Learned about useEffects and optimizing fetching data from an API.",
-    link: "https://renem.me/memory-card-game",
+    link: "https://renem.me/memory-card-game/",
   },
   {
     title: "CV Generator",
     description:
       "React project that familiarized me with hooks and state management.",
-    link: "https://renem.me/cv-builder-application",
+    link: "https://renem.me/cv-builder-application/",
   },
   {
     title: "Flag Guesser",
     description:
       "Just something I made to practice my React skills. It uses the REST Countries API to fetch data.",
-    link: "https://renem.me/flag-guesser",
+    link: "https://renem.me/flag-guesser/",
   },
   {
     title: "Project Four",
