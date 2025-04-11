@@ -10,6 +10,8 @@ import {
   SiMysql,
   SiSharp,
   SiTailwindcss,
+  SiGithub,
+  SiLinkedin,
 } from "react-icons/si";
 
 const techIcons = [
@@ -23,30 +25,41 @@ const techIcons = [
   { icon: SiTailwindcss, name: "Tailwind" },
 ];
 
+const socialLinks = [
+  {
+    url: "https://www.linkedin.com/in/rene-merida-675738290/",
+    icon: SiLinkedin,
+  },
+  {
+    url: "https://www.github.com/Renx24",
+    icon: SiGithub,
+  },
+];
+
 const projects = [
   {
-    title: "Memory Card Game",
+    title: "🧠 Memory Card Game",
     description:
       "Fully-responsive memory game built with React and TypeScript. Learned about useEffects and optimizing fetching data from an API.",
     link: "https://renem.me/memory-card-game/",
   },
   {
-    title: "CV Generator",
+    title: "📄 CV Generator",
     description:
-      "React project that familiarized me with hooks and state management.",
-    link: "https://renem.me/cv-builder-application/",
+      "React project that familiarized me with hooks and conditional rendering. Very useState heavy - learned a lot about managing state and props.",
+    link: "https://renem.me/cv-preview-application/",
   },
   {
-    title: "Flag Guesser",
+    title: "🎌 Flag Guesser",
     description:
-      "Just something I made to practice my React skills. It uses the REST Countries API to fetch data.",
+      "Just something I made to practice my React skills. It uses the REST Countries API to fetch data and keeps track of the score.",
     link: "https://renem.me/flag-guesser/",
   },
   {
-    title: "Project Four",
+    title: "🕹️ Pokedex",
     description:
-      "An elegant solution for Z with a focus on UX and performance.",
-    link: "https://renem.me/F",
+      "One of the first projects I made - manipulates DOM and API through JavaScript. It uses the PokeAPI to fetch data and display it in a user-friendly way.",
+    link: "https://renem.me/pokedex-app/",
   },
 ];
 
@@ -77,12 +90,19 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {projects.map((project, i) => (
             <motion.a
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              whileTap={{ scale: 0.95 }}
+              whileFocus={{ scale: 1.03 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="w-full"
               key={i}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
-              className="block"
             >
               <Card className="rounded-2xl shadow-md bg-white hover:shadow-lg transition">
                 <CardContent className="p-6 space-y-2">
@@ -94,6 +114,45 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
+
+      <footer className="text-center">
+        <h2 className="text-2xl font-semibold mb-6">Connect with me</h2>
+        <div className="flex justify-center space-x-6">
+          {socialLinks.map(({ url, icon: Icon }) => (
+            <Badge
+              key={url}
+              className="flex items-center space-x-2 text-base px-3 py-2"
+            >
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                <Icon className="w-5 h-5" />
+              </a>
+            </Badge>
+          ))}
+        </div>
+        <p className="mt-4 text-slate-500">
+          © {new Date().getFullYear()} Rene Merida. All rights reserved.
+        </p>
+        <p className="text-slate-500">
+          Built with{" "}
+          <a
+            href="https://vite.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-800 hover:text-slate-600 transition"
+          >
+            Vite
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://tailwindcss.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-800 hover:text-slate-600 transition"
+          >
+            Tailwind CSS
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
