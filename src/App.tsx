@@ -28,7 +28,7 @@ const projects = [
     title: "Memory Card Game",
     description:
       "Fully-responsive memory game built with React and TypeScript. Learned about useEffects and optimizing fetching data from an API.",
-    link: "https://renem.me/memory-card-game",
+    link: "https://renem.me/memory-card-game/",
   },
   {
     title: "CV Generator",
