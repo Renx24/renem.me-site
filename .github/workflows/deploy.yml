@@ -19,15 +19,6 @@ jobs:
       - name: Build Vite app
         run: npm run build
 
-      - name: Clean old files on server
-        uses: appleboy/ssh-action@master
-        with:
-          host: 167.99.222.76
-          username: rene
-          key: ${{ secrets.DROPLET_SSH_KEY }}
-          script: |
-            rm -rf /var/www/renem.me/*
-
       - name: Upload build to server
         uses: appleboy/scp-action@master
         with:
