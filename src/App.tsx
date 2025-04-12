@@ -32,16 +32,16 @@ const techIcons = [
 
 const socialLinks = [
   {
-    url: "https://www.linkedin.com/in/rene-merida-675738290/",
-    icon: SiLinkedin,
-  },
-  {
     url: "https://www.github.com/Renx24",
     icon: SiGithub,
   },
   {
     url: "mailto:remerida@hotmail.com",
     icon: SiMailboxdotorg,
+  },
+  {
+    url: "https://www.linkedin.com/in/rene-merida-675738290/",
+    icon: SiLinkedin,
   },
 ];
 
@@ -92,8 +92,8 @@ export default function Portfolio() {
         </div>
         <h1 className="text-4xl font-bold">Rene Merida</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto mb-10">
-          I'm a developer who builds clean, performant, and user-friendly
-          applications.
+          I'm a developer who loves building clean, performant, and
+          user-friendly applications.
         </p>
         <div className="flex justify-center flex-wrap gap-4 mt-4">
           {techIcons.map(({ icon: Icon, name }) => (
@@ -141,17 +141,14 @@ export default function Portfolio() {
       </section>
 
       <footer className="text-center">
-        <h2 className="text-2xl font-semibold mb-6">Connect with me</h2>
+        <h2 className="text-2xl font-semibold mb-6">Socials</h2>
         <div className="flex justify-center space-x-6">
           {socialLinks.map(({ url, icon: Icon }) => (
-            <Badge
-              key={url}
-              className="flex items-center space-x-2 text-base px-3 py-2"
-            >
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                <Icon className="w-5 h-5" />
-              </a>
-            </Badge>
+            <a key={url} href={url} target="_blank" rel="noopener noreferrer">
+              <Badge className="flex items-center space-x-2 text-base px-3 py-2 hover:bg-slate-600 dark:hover:bg-slate-500 transition">
+                <Icon style={{ width: "1.5rem", height: "1.5rem" }} />
+              </Badge>
+            </a>
           ))}
         </div>
         <p className="mt-4 text-slate-500 dark:text-slate-400">
