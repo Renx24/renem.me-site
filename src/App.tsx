@@ -49,6 +49,12 @@ const socialLinks = [
 
 const projects = [
   {
+    title: "🛒 MyShop",
+    description:
+      "An e-commerce project utilizing React Router. It uses a mock API to fetch data and display it in a user-friendly way. Deployed via Docker.",
+    link: "https://renem.me/shopping-cart/",
+  },
+  {
     title: "🧠 Memory Card Game",
     description:
       "Fully-responsive memory game built with React and TypeScript. Learned about useEffects and optimizing fetching data from an API.",
@@ -65,12 +71,6 @@ const projects = [
     description:
       "Just something I made to practice my React skills. It uses the REST Countries API to fetch data and keeps track of the score.",
     link: "https://renem.me/flag-guesser/",
-  },
-  {
-    title: "🛒 MyShop",
-    description:
-      "An e-commerce project utilizing React Router. It uses a mock API to fetch data and display it in a user-friendly way. Deployed via Docker.",
-    link: "https://renem.me/shopping-cart/",
   },
   {
     title: "🕹️ Pokedex",
