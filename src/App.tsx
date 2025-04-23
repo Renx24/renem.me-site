@@ -15,6 +15,7 @@ import {
   SiLinkedin,
   SiBootstrap,
   SiMailboxdotorg,
+  SiDocker,
 } from "react-icons/si";
 import { BsSun, BsMoon } from "react-icons/bs";
 
@@ -28,6 +29,7 @@ const techIcons = [
   { icon: SiSharp, name: "C#" },
   { icon: SiBootstrap, name: "Bootstrap" },
   { icon: SiTailwindcss, name: "Tailwind" },
+  { icon: SiDocker, name: "Docker" },
 ];
 
 const socialLinks = [
@@ -63,6 +65,12 @@ const projects = [
     description:
       "Just something I made to practice my React skills. It uses the REST Countries API to fetch data and keeps track of the score.",
     link: "https://renem.me/flag-guesser/",
+  },
+  {
+    title: "🛒 MyShop",
+    description:
+      "An e-commerce project utilizing React Router. It uses a mock API to fetch data and display it in a user-friendly way. Deployed via Docker.",
+    link: "https://renem.me/shopping-cart/",
   },
   {
     title: "🕹️ Pokedex",
