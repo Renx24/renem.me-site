@@ -20,6 +20,7 @@ import {
   SiNodedotjs,
 } from "react-icons/si";
 import { BsSun, BsMoon } from "react-icons/bs";
+import Navbar from "./components/ui/Navbar";
 
 const techIcons = [
   { icon: SiHtml5, name: "HTML" },
@@ -102,9 +103,10 @@ export default function Portfolio() {
   }, [isDark]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 px-4 py-10 space-y-12 flex flex-col">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 px-4 py-4 space-y-12 flex flex-col">
       <header className="text-center space-y-4 mt-8">
         <div className="flex justify-end mr-4">
+          <Navbar />
           <button
             onClick={() => setIsDark(!isDark)}
             className="text-2xl p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition"
