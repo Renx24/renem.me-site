@@ -16,6 +16,8 @@ import {
   SiBootstrap,
   SiMailboxdotorg,
   SiDocker,
+  SiReactrouter,
+  SiNodedotjs,
 } from "react-icons/si";
 import { BsSun, BsMoon } from "react-icons/bs";
 
@@ -29,7 +31,9 @@ const techIcons = [
   { icon: SiSharp, name: "C#" },
   { icon: SiBootstrap, name: "Bootstrap" },
   { icon: SiTailwindcss, name: "Tailwind" },
+  { icon: SiReactrouter, name: "React Router" },
   { icon: SiDocker, name: "Docker" },
+  { icon: SiNodedotjs, name: "NodeJS" },
 ];
 
 const socialLinks = [
@@ -53,30 +57,40 @@ const projects = [
     description:
       "An e-commerce project utilizing React Router. It uses a mock API to fetch data and display it in a user-friendly way. Deployed via Docker.",
     link: "https://renem.me/shopping-cart/",
+    image: "/images/myshop1.png",
+    techStack: "React, React-Router, TypeScript, Tailwind CSS, API, Docker",
   },
   {
     title: "🧠 Memory Card Game",
     description:
       "Fully-responsive memory game built with React and TypeScript. Learned about useEffects and optimizing fetching data from an API.",
     link: "https://renem.me/memory-card-game/",
+    image: "/images/memory1.png",
+    techStack: "React, TypeScript, API",
   },
   {
     title: "📄 CV Generator",
     description:
       "React project that familiarized me with hooks and conditional rendering. Very useState heavy - learned a lot about managing state and props.",
     link: "https://renem.me/cv-preview-application/",
+    image: "/images/cvbuilder1.png",
+    techStack: "React, TypeScript, Bootstrap",
   },
   {
     title: "🎌 Flag Guesser",
     description:
       "Just something I made to practice my React skills. It uses the REST Countries API to fetch data and keeps track of the score.",
     link: "https://renem.me/flag-guesser/",
+    image: "/images/country1.png",
+    techStack: "React, TypeScript, API",
   },
   {
     title: "🕹️ Pokedex",
     description:
       "One of the first projects I made - manipulates DOM and API through JavaScript. It uses the PokeAPI to fetch data and display it in a user-friendly way.",
     link: "https://renem.me/pokedex-app/",
+    image: "/images/pokedex1.png",
+    techStack: "HTML, CSS, JavaScript, API",
   },
 ];
 
@@ -116,9 +130,9 @@ export default function Portfolio() {
         </div>
       </header>
 
-      <section className="flex grow flex-col items-center justify-center">
+      <section className="flex grow flex-col items-center justify-center max-w-7xl mx-auto">
         <h2 className="text-2xl font-semibold text-center mb-6">Portfolio</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 gap-6 mx-auto">
           {projects.map((project, i) => (
             <motion.a
               initial={{ opacity: 0, y: 20 }}
@@ -137,6 +151,19 @@ export default function Portfolio() {
             >
               <Card className="rounded-2xl shadow-md bg-white dark:bg-slate-800 hover:shadow-lg transition">
                 <CardContent className="p-6 space-y-2">
+                  <img
+                    src={project.image}
+                    alt={project.title + " display image"}
+                    className="rounded-lg mb-4 w-full h-full object-cover"
+                  />
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm text-slate-500 dark:text-slate-400">
+                      {project.link}
+                    </span>
+                    <span className="text-sm text-slate-500 dark:text-slate-400">
+                      {project.techStack}
+                    </span>
+                  </div>
                   <h3 className="text-xl font-semibold">{project.title}</h3>
                   <p className="text-slate-600 dark:text-slate-300">
                     {project.description}
