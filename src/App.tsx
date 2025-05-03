@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
@@ -19,7 +18,6 @@ import {
   SiReactrouter,
   SiNodedotjs,
 } from "react-icons/si";
-import { BsSun, BsMoon } from "react-icons/bs";
 import Navbar from "./components/ui/Navbar";
 
 const techIcons = [
@@ -96,30 +94,19 @@ const projects = [
 ];
 
 export default function Portfolio() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark);
-  }, [isDark]);
-
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 px-4 py-4 space-y-12 flex flex-col">
-      <header className="text-center space-y-4 mt-8">
-        <div className="flex justify-end mr-4">
-          <Navbar />
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="text-2xl p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition"
-          >
-            {isDark ? <BsSun /> : <BsMoon />}
-          </button>
-        </div>
+      <Navbar />
+      <header
+        id="about"
+        className="min-h-[40vh] text-center space-y-4 align-middle flex flex-col justify-center"
+      >
         <h1 className="text-4xl font-bold">Rene Merida</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto mb-10">
           I'm a developer who loves building clean, performant, and
           user-friendly applications.
         </p>
-        <div className="flex justify-center flex-wrap gap-4 mt-4">
+        <div className="flex justify-center flex-wrap gap-4 mt-4  mx-auto">
           {techIcons.map(({ icon: Icon, name }) => (
             <Badge
               key={name}
@@ -132,9 +119,12 @@ export default function Portfolio() {
         </div>
       </header>
 
-      <section className="flex grow flex-col items-center justify-center max-w-7xl mx-auto">
+      <section
+        id="projects"
+        className="flex grow flex-col items-center justify-center max-w-7xl mx-auto"
+      >
         <h2 className="text-2xl font-semibold text-center mb-6">Portfolio</h2>
-        <div className="grid grid-cols-1 gap-6 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto">
           {projects.map((project, i) => (
             <motion.a
               initial={{ opacity: 0, y: 20 }}
@@ -177,7 +167,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <footer className="text-center">
+      <footer id="contact" className="text-center">
         <h2 className="text-2xl font-semibold mb-6">Socials</h2>
         <div className="flex justify-center space-x-6">
           {socialLinks.map(({ url, icon: Icon }) => (
